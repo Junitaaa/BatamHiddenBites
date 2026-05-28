@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batam Hidden Bites — Review UMKM Kuliner Batam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <div class="particles-container" id="particles"></div>
+
+    <nav>
+        <div class="nav-logo">Batam<span>Hidden</span><span>bites</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#kategori">Kategori</a></li>
+            <li><a href="#peta-umkm">Lokasi</a></li>
+            <li><a href="#community-review">Review</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tag">🇮🇩 Platform Review Kuliner Lokal</div>
+            <h1>Temukan <span class="highlight">Kuliner</span> UMKM Terbaik</h1>
+            <p class="hero-desc">Jelajahi review jujur dari pelanggan nyata. Dari warung pinggir jalan  UMKM kekinian — semuanya ada di sini.</p>
+            <div class="hero-actions">
+                <a href="#kategori" class="btn-primary">Temukan Kuliner🔍 </a>
+                <a href="#community-review" class="btn-secondary">Tulis Review✍️</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-mosaic">
+                <!-- Foto besar kiri -->
+                <div class="mosaic-main">
+                    <img src="img/mie ayam.png" alt="Mie Ayam" class="mosaic-img">
+                    <div class="mosaic-label">
+                        <span class="mosaic-name">Mie Ayam</span>
+                        <span class="mosaic-tag">🔥 HOT</span>
+                    </div>
+                </div>
+                <!-- Kolom kanan: 3 foto kecil susun vertikal -->
+                <div class="mosaic-col">
+                    <div class="mosaic-small">
+                        <img src="img/bakso.png" alt="Bakso" class="mosaic-img">
+                        <div class="mosaic-label-sm">Bakso</div>
+                    </div>
+                    <div class="mosaic-small">
+                        <img src="img/tahu.png" alt="Tahu Crispy" class="mosaic-img">
+                        <div class="mosaic-label-sm">Tahu Crispy</div>
+                    </div>
+                    <div class="mosaic-small">
+                        <img src="img/churos.png" alt="Churos" class="mosaic-img">
+                        <div class="mosaic-label-sm">Churos</div>
+                    </div>
+                </div>
+                <!-- Floating badge -->
+                <div class="mosaic-badge-float">
+                    <span class="mbf-emoji">🍽️</span>
+                    <div>
+                        <div class="mbf-num">15+</div>
+                        <div class="mbf-txt">Kuliner Lokal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="kategori">
+        <div class="section-header reveal">
+            <div class="section-tag">Menu Pilihan</div>
+            <h2>Semua Kategori Kuliner</h2>
+            <p class="section-sub">Pilih kategori favoritmu dan temukan UMKM terbaik di kota kamu.</p>
+        </div>
+
+        <div class="cat-icon-row reveal">
+            <div class="cat-icon-pill active" onclick="filterCategory('all', this)" data-filter="all">
+                <span class="cip-emoji">🍽️</span>
+                <span class="cip-label">Semua</span>
+            </div>
+            <div class="cat-icon-pill" onclick="filterCategory('berat', this)" data-filter="berat">
+                <span class="cip-emoji">🍜</span>
+                <span class="cip-label">Makanan Berat</span>
+            </div>
+            <div class="cat-icon-pill" onclick="filterCategory('ringan', this)" data-filter="ringan">
+                <span class="cip-emoji">🥪</span>
+                <span class="cip-label">Makanan Ringan</span>
+            </div>
+            <div class="cat-icon-pill" onclick="filterCategory('minuman', this)" data-filter="minuman">
+                <span class="cip-emoji">🧋</span>
+                <span class="cip-label">Minuman</span>
+            </div>
+            <div class="cat-icon-pill" onclick="filterCategory('dessert', this)" data-filter="dessert">
+                <span class="cip-emoji">🍰</span>
+                <span class="cip-label">Dessert</span>
+            </div>
+        </div>
+
+        <div class="search-wrap reveal">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Cari makanan atau UMKM..." oninput="filterCards()">
+        </div>
+
+        <div class="cat-filter" id="hiddenCatFilter">
+            <button class="filter-btn active" onclick="filterCategory('all', this)" data-filter="all">Semua</button>
+            <button class="filter-btn" onclick="filterCategory('berat', this)" data-filter="berat">Makanan Berat</button>
+            <button class="filter-btn" onclick="filterCategory('ringan', this)" data-filter="ringan">Makanan Ringan</button>
+            <button class="filter-btn" onclick="filterCategory('minuman', this)" data-filter="minuman">Minuman</button>
+            <button class="filter-btn" onclick="filterCategory('dessert', this)" data-filter="dessert">Dessert</button>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid"></div>
+        <div class="no-results" id="noResults">😔 Tidak ada hasil ditemukan. Coba kata kunci lain.</div>
+    </section>
+
+
+    <!-- ===== PETA LOKASI UMKM ===== -->
+    <section class="umkm-map-section" id="peta-umkm">
+        <div class="section-header reveal">
+            <div class="section-tag">📍 Sebaran Lokasi</div>
+            <h2>Temukan UMKM di Sekitarmu</h2>
+            <p class="section-sub">Klik marker di peta untuk melihat info UMKM kuliner terdekat.</p>
+        </div>
+
+        <!-- Filter chip kategori peta -->
+        <div class="map-filter-row reveal">
+            <button class="map-chip active" onclick="filterMapMarkers('all', this)">🍽️ Semua</button>
+            <button class="map-chip" onclick="filterMapMarkers('berat', this)">🍜 Makanan Berat</button>
+            <button class="map-chip" onclick="filterMapMarkers('ringan', this)">🥪 Makanan Ringan</button>
+            <button class="map-chip" onclick="filterMapMarkers('minuman', this)">🧋 Minuman</button>
+            <button class="map-chip" onclick="filterMapMarkers('dessert', this)">🍰 Dessert</button>
+        </div>
+
+        <div class="map-wrapper reveal">
+            <!-- Google Maps embed -->
+            <div id="umkmMap" class="umkm-map-canvas"></div>
+
+            <!-- Panel info UMKM saat marker diklik -->
+            <div class="map-info-panel" id="mapInfoPanel">
+                <div class="mip-placeholder" id="mapInfoPlaceholder">
+                    <div class="mip-icon">📍</div>
+                    <p>Klik marker di peta<br>untuk melihat info UMKM</p>
+                </div>
+                <div class="mip-content" id="mapInfoContent" style="display:none">
+                    <div class="mip-img-wrap">
+                        <img id="mipImg" src="" alt="" class="mip-img">
+                    </div>
+                    <div class="mip-body">
+                        <div class="mip-category" id="mipCategory"></div>
+                        <div class="mip-name" id="mipName"></div>
+                        <div class="mip-umkm" id="mipUmkm"></div>
+                        <div class="mip-price" id="mipPrice"></div>
+                        <div class="mip-address" id="mipAddress"></div>
+                        <button class="mip-btn" id="mipDirectionBtn" onclick="openDirections()">
+                            🗺️ Buka di Google Maps
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legenda -->
+        <div class="map-legend reveal">
+            <span class="legend-title">Legenda:</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#E8632A"></span>Makanan Berat</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#40916C"></span>Makanan Ringan</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#4A90D9"></span>Minuman</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#D4A843"></span>Dessert</span>
+        </div>
+    </section>
+
+    <section class="community-review" id="community-review">
+        <div class="section-header reveal">
+            <div class="section-tag">💬 Suara Konsumen</div>
+            <h2>Review Komunitas Live</h2>
+            <p class="section-sub">Berikan review jujur kamu untuk membantu UMKM kuliner Indonesia berkembang!</p>
+        </div>
+        <div class="review-form-wrap reveal">
+            <div class="form-card">
+                <h3>Tulis Review Kamu</h3>
+                <p class="form-subtitle">Bagikan pengalaman kulinermu</p>
+                <form id="reviewForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="inputName">Nama Kamu</label>
+                        <input type="text" class="form-input" id="inputName" required placeholder="Contoh: Budi Santoso">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="inputFood">Nama Makanan / Kuliner</label>
+                        <input type="text" class="form-input" id="inputFood" required placeholder="Contoh: Bakso Mercon Lava">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="inputUmkm">Nama UMKM &amp; Kota</label>
+                        <input type="text" class="form-input" id="inputUmkm" required placeholder="Contoh: Bakso Pak Ndut, Solo">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Rating</label>
+                        <div class="star-picker">
+                            <button type="button" class="star-btn" data-value="1" onclick="selectStar(1)">★</button>
+                            <button type="button" class="star-btn" data-value="2" onclick="selectStar(2)">★</button>
+                            <button type="button" class="star-btn" data-value="3" onclick="selectStar(3)">★</button>
+                            <button type="button" class="star-btn" data-value="4" onclick="selectStar(4)">★</button>
+                            <button type="button" class="star-btn" data-value="5" onclick="selectStar(5)">★</button>
+                        </div>
+                        <span class="star-label" id="starLabel">Klik bintang untuk memberi rating</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="inputReview">Ulasan Jujur Kamu</label>
+                        <textarea class="form-textarea" id="inputReview" required maxlength="300" placeholder="Ceritakan rasa, porsi, pelayanan, tempat... (Maksimal 300 karakter)"></textarea>
+                        <div style="text-align: right; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">
+                            <span id="charCount">0</span>/300 karakter
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">📷 Tambah Foto <span style="font-weight:400;color:var(--text-muted)">(Opsional, maks. 3)</span></label>
+                        <div class="photo-upload-area">
+                            <div id="photoPreview" class="photo-preview-row"></div>
+                            <button type="button" id="photoAddBtn" class="photo-add-btn" onclick="document.getElementById('photoInput').click()">
+                                <span class="photo-add-icon">📷</span>
+                                <span>Tambah</span>
+                            </button>
+                            <input type="file" id="photoInput" accept="image/*" multiple style="display:none">
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">🚀 Kirim Review</button>
+                </form>
+            </div>
+            <div class="reviews-panel">
+                <div class="review-stats-bar">
+                    <div class="rstat">
+                        <span class="rstat-val" id="panelTotalReview">0</span>
+                        <span class="rstat-lbl">Ulasan</span>
+                    </div>
+                    <div class="rstat-divider"></div>
+                    <div class="rstat-val" id="panelAvgRating">0.0</div>
+                    <span class="rstat-lbl">Rata-rata</span>
+                </div>
+                <div class="reviews-panel-header">
+                    <h4 class="reviews-panel-title">Ulasan Terbaru</h4>
+                    <span class="review-count-badge" id="liveCountBadge">0 Live</span>
+                </div>
+                <div class="reviews-scroll" id="communityReviewsList"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DETAIL KULINER -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal">
+            <button class="modal-close" onclick="forceCloseModal()">✕</button>
+            <div class="modal-hero">
+                <div id="modalImageContainer" class="modal-hero-img-wrap"></div>
+                <div class="modal-hero-gradient"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tag" id="modalCategory">KATEGORI</div>
+                <h3 class="modal-title" id="modalTitle">Nama Kuliner</h3>
+                <div class="modal-umkm" id="modalUmkm">Nama UMKM</div>
+                <div class="modal-tags" id="modalTags"></div>
+                <div class="modal-info-grid">
+                    <div class="info-card">
+                        <div class="info-label">Kisaran Harga</div>
+                        <div class="info-value" id="modalPrice">Rp 0</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Rekomendasi Menu</div>
+                        <div class="info-value" id="modalBestMenu">-</div>
+                    </div>
+                </div>
+                <hr class="modal-divider">
+                <h4 class="modal-section-title">Tentang Kuliner Ini</h4>
+                <p class="modal-desc" id="modalDesc">Deskripsi lengkap kuliner.</p>
+                <hr class="modal-divider">
+                <h4 class="modal-section-title">📸 Foto Kuliner</h4>
+                <div class="modal-photo-gallery" id="modalPhotoGallery"></div>
+                <div class="modal-cta" style="margin-top: 2rem;">
+                    <button class="modal-btn-primary">🗺️ Lihat Rute Lokasi UMKM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">Rasa<span>Lokal</span></div>
+        <div class="footer-text">© 2026 RasaLokal Indonesia — Dukung penuh UMKM Kuliner Lokal.</div>
+        <div class="footer-links">
+            <a href="#">Syarat</a>
+            <a href="#">Privasi</a>
+            <a href="#">Kontak</a>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">🎉 Berhasil!</div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
