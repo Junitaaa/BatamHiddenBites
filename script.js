@@ -1,87 +1,91 @@
-
-
-
 const foodData = [
-  
-
   { id:1, name:"Mie Ayam", category:"berat", umkm:"Mie Ayam dan Bakso Mantul", price:"Rp 14.000 / porsi", rating:4.9, ratingCount:1240, badge:"hot",
-    img:"img/mie ayam.png",
-    photos:["img/mie ayam.png","img/mie ayam.png","img/mie ayam.png"],
-    tags:["Mie","Ayam","Pedas"], desc:"Mie ayam, toping ayam suwir, dan kuah kaldu yang kaya rempah.", bestMenu:"Mie Ayam Bakso Urat",
-    lat:1.1192898, lng:103.9772625 },
-
+    img:"img/mie ayam.png", photos:["img/mie ayam.png","img/mie ayam.png","img/mie ayam.png"],
+    tags:["Mie","Ayam","Pedas"], desc:"Mie ayam, toping ayam suwir, dan kuah kaldu yang kaya rempah.", bestMenu:"Mie Ayam Bakso Urat", lat:1.1192898, lng:103.9772625 },
   { id:2, name:"Bakso", category:"berat", umkm:"Mie Ayam dan Bakso Mantul", price:"Rp 15.000 / porsi", rating:4.8, ratingCount:3420, badge:"top",
-    img:"img/bakso.png",
-    photos:["img/bakso.png","img/bakso.png","img/bakso.png"],
-    tags:["Bakso","Daging","Gurih"], desc:"Bakso daging asli dengan kuah gurih.", bestMenu:"Bakso Urat",
-    lat:1.1192898, lng:103.9772625 },
-
+    img:"img/bakso.png", photos:["img/bakso.png","img/bakso.png","img/bakso.png"],
+    tags:["Bakso","Daging","Gurih"], desc:"Bakso daging asli dengan kuah gurih.", bestMenu:"Bakso Urat", lat:1.1192898, lng:103.9772625 },
   { id:3, name:"Bakso Urat", category:"berat", umkm:"Mie Ayam dan Bakso Mantul", price:"Rp 20.000 / porsi", rating:4.7, ratingCount:850, badge:null,
-    img:"img/bakso urat.png",
-    photos:["img/bakso urat.png","img/bakso urat.png","img/bakso urat.png"],
-    tags:["Bakso","Daging","Gurih"], desc:"Bakso daging asli dengan kuah gurih.", bestMenu:"Bakso Urat",
-    lat:1.1192898, lng:103.9772625 },
-
+    img:"img/bakso urat.png", photos:["img/bakso urat.png","img/bakso urat.png","img/bakso urat.png"],
+    tags:["Bakso","Daging","Gurih"], desc:"Bakso daging asli dengan kuah gurih.", bestMenu:"Bakso Urat", lat:1.1192898, lng:103.9772625 },
   { id:4, name:"Jus Alpukat", category:"minuman", umkm:"Titik", price:"Rp 10.000 / gelas", rating:4.6, ratingCount:560, badge:"new",
-    img:"img/jus.png",
-    photos:["img/jus.png","img/jus.png","img/jus.png"],
-    tags:["Jus","Buah","Segar"], desc:"Jus buah segar, manis asli buah.", bestMenu:"Jus Alpukat",
-    lat:1.1618644, lng:104.0435249 },
-
+    img:"img/jus.png", photos:["img/jus.png","img/jus.png","img/jus.png"],
+    tags:["Jus","Buah","Segar"], desc:"Jus buah segar, manis asli buah.", bestMenu:"Jus Alpukat", lat:1.1618644, lng:104.0435249 },
   { id:5, name:"Churos", category:"ringan", umkm:"Uweita Churos", price:"Rp 3.000 / biji", rating:4.5, ratingCount:2100, badge:"hot",
-    img:"img/churos.png",
-    photos:["img/churos.png","img/churos.png","img/churos.png"],
-    tags:["Churros","Goreng","Krispi"], desc:"Churos renyah dengan berbagai pilihan topping manis.", bestMenu:"Churos Coklat",
-    lat:1.0422012, lng:103.9764657 },
-
+    img:"img/churos.png", photos:["img/churos.png","img/churos.png","img/churos.png"],
+    tags:["Churros","Goreng","Krispi"], desc:"Churos renyah dengan berbagai pilihan topping manis.", bestMenu:"Churos Coklat", lat:1.0422012, lng:103.9764657 },
   { id:6, name:"Tahu Crispy", category:"ringan", umkm:"Tahu Crispy", price:"Rp 10.000 - 15.000 / porsi", rating:4.8, ratingCount:1750, badge:"top",
-    img:"img/tahu.png",
-    photos:["img/tahu.png","img/tahu.png","img/tahu.png"],
-    tags:["Tahu","Goreng","Crispy"], desc:"Tahu crispy dengan berbagai pilihan bumbu.", bestMenu:"Tahu Crispy Bumbu Balado",
-    lat:1.161299, lng:104.042231},
-
+    img:"img/tahu.png", photos:["img/tahu.png","img/tahu.png","img/tahu.png"],
+    tags:["Tahu","Goreng","Crispy"], desc:"Tahu crispy dengan berbagai pilihan bumbu.", bestMenu:"Tahu Crispy Bumbu Balado", lat:1.161299, lng:104.042231 },
   { id:7, name:"Ice Cream", category:"dessert", umkm:"Ice Cream", price:"Rp 20.000 / porsi", rating:4.7, ratingCount:980, badge:null,
-    img:"img/ice cream.png",
-    photos:["img/ice cream.png","img/ice cream.png","img/ice cream.png"],
-    tags:["Ice","Cream","Segar"], desc:"Ice cream yang menyegarkan.", bestMenu:"Ice cream",
-    lat:1.1301, lng:104.0529 },
-
+    img:"img/ice cream.png", photos:["img/ice cream.png","img/ice cream.png","img/ice cream.png"],
+    tags:["Ice","Cream","Segar"], desc:"Ice cream yang menyegarkan.", bestMenu:"Ice cream", lat:1.1301, lng:104.0529 },
   { id:8, name:"Bakso Bakar", category:"ringan", umkm:"Bakso Bakar", price:"Rp 2.000 / tusuk", rating:4.6, ratingCount:430, badge:"new",
-    img:"img/bakso bakar.png",
-    photos:["img/bakso bakar.png","img/bakso bakar.png","img/bakso bakar.png"],
-    tags:["Bakso","Bakar","Gurih"], desc:"Bakso bakar yang kenyal dengan bumbu bakar yang gurih.", bestMenu:"Bakso Bakar",
-    lat:1.1291635, lng:104.0338627 },
-
+    img:"img/bakso bakar.png", photos:["img/bakso bakar.png","img/bakso bakar.png","img/bakso bakar.png"],
+    tags:["Bakso","Bakar","Gurih"], desc:"Bakso bakar yang kenyal dengan bumbu bakar yang gurih.", bestMenu:"Bakso Bakar", lat:1.1291635, lng:104.0338627 },
   { id:9, name:"Risol", category:"ringan", umkm:"Risol Pudo", price:"Rp 3.000 - 4.000 / biji", rating:4.9, ratingCount:2340, badge:"hot",
-    img:"img/risol.png",
-    photos:["img/risol.png","img/risol.png","img/risol.png"],
-    tags:["Risol","Goreng","Gurih"], desc:"Risol mayo dengan berbagai varian isi.", bestMenu:"Risol Mayo",
-    lat: 1.1531704, lng:104.0373216 },
-
+    img:"img/risol.png", photos:["img/risol.png","img/risol.png","img/risol.png"],
+    tags:["Risol","Goreng","Gurih"], desc:"Risol mayo dengan berbagai varian isi.", bestMenu:"Risol Mayo", lat:1.1531704, lng:104.0373216 },
   { id:10, name:"Apam Balik", category:"ringan", umkm:"Apam Balik", price:"Rp 5.000 / porsi", rating:4.8, ratingCount:1890, badge:"hot",
-    img:"img/apam balik.jpeg",
-    photos:["img/apam balik.jpeg","img/apam balik.jpeg","img/apam balik.jpeg"],
-    tags:["Apam","Balik","Rasa"], desc:"Apam balik dengan berbagai varian toping.", bestMenu:"Apam balik toping coklat",
-    lat:1.1440112, lng:104.0118314 },
-
+    img:"img/apam balik.jpeg", photos:["img/apam balik.jpeg","img/apam balik.jpeg","img/apam balik.jpeg"],
+    tags:["Apam","Balik","Rasa"], desc:"Apam balik dengan berbagai varian toping.", bestMenu:"Apam balik toping coklat", lat:1.1440112, lng:104.0118314 },
   { id:11, name:"Cuanki", category:"berat", umkm:"Cuanki khas Bandung", price:"Rp 10.000 / porsi", rating:4.7, ratingCount:2210, badge:"top",
-    img:"img/cuanki.jpeg",
-    photos:["img/cuanki.jpeg","img/cuanki.jpeg","img/cuanki.jpeg"],
-    tags:["Cuanki","Gurih","Kuah"], desc:"Perpaduan cuanki kenyal dengan kuah gurih khas Bandung.", bestMenu:"Cuanki",
-    lat:1.1446114, lng:104.0366588 },
-
+    img:"img/cuanki.jpeg", photos:["img/cuanki.jpeg","img/cuanki.jpeg","img/cuanki.jpeg"],
+    tags:["Cuanki","Gurih","Kuah"], desc:"Perpaduan cuanki kenyal dengan kuah gurih khas Bandung.", bestMenu:"Cuanki", lat:1.1446114, lng:104.0366588 },
   { id:12, name:"Kopi", category:"minuman", umkm:"Fomo Coffe", price:"Rp 10.000 / gelas", rating:4.5, ratingCount:3100, badge:null,
-    img:"img/kopi.jpeg",
-    photos:["img/kopi.jpeg","img/kopi.jpeg","img/kopi.jpeg"],
-    tags:["Kopi","Susu","Hangat"], desc:"Kopi susu yang nikmat dan menghangatkan, diseduh dari biji kopi pilihan.", bestMenu:"Kopi Susu",
-    lat:1.1610421, lng:1104.041943 },
-
+    img:"img/kopi.jpeg", photos:["img/kopi.jpeg","img/kopi.jpeg","img/kopi.jpeg"],
+    tags:["Kopi","Susu","Hangat"], desc:"Kopi susu yang nikmat dan menghangatkan, diseduh dari biji kopi pilihan.", bestMenu:"Kopi Susu", lat:1.1610421, lng:104.041943 },
 ];
 
 let currentFilter = 'all';
 let currentRating = 0;
 let uploadedPhotos = [];
 const communityReviews = JSON.parse(localStorage.getItem('communityReviews')) || [];
+
+let photoPreview = null;
+let photoAddBtn = null;
+
+
+function loadDropdowns() {
+  const umkmSelect = document.getElementById('inputUmkm');
+  const foodSelect = document.getElementById('inputFood');
+
+  if (umkmSelect) {
+    umkmSelect.innerHTML = '<option value="">-- Pilih UMKM --</option>';
+    const uniqueUmkm = [...new Set(foodData.map(item => item.umkm))];
+    uniqueUmkm.forEach(name => {
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      umkmSelect.appendChild(opt);
+    });
+
+  
+    umkmSelect.addEventListener('change', () => {
+      const selectedUmkm = umkmSelect.value;
+      foodSelect.innerHTML = '<option value="">-- Pilih Makanan --</option>';
+      if (!selectedUmkm) return;
+      const filtered = foodData.filter(item => item.umkm === selectedUmkm);
+      filtered.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.name;
+        opt.textContent = item.name;
+        foodSelect.appendChild(opt);
+      });
+ 
+      if (filtered.length === 1) foodSelect.value = filtered[0].name;
+    });
+  }
+
+  // Makanan awalnya kosong, menunggu UMKM dipilih
+  if (foodSelect) {
+    foodSelect.innerHTML = '<option value="">-- Pilih Makanan --</option>';
+  }
+}
+
+function loadUmkm() {
+  // Placeholder
+}
 
 function createParticles() {
   const container = document.getElementById('particles');
@@ -133,7 +137,6 @@ function renderCards(data) {
         <div class="card-category">${catLabels[item.category] || item.category}</div>
         <div class="card-title">${item.name}</div>
         <div class="card-umkm">${item.umkm}</div>
-        
         <div class="card-footer">
           <div class="card-price">${item.price}</div>
           <button class="card-btn" onclick="openModal(${item.id})">Lihat Detail</button>
@@ -163,8 +166,6 @@ function filterCards() {
 function openModal(id) {
   const item = foodData.find(f => f.id === id);
   if (!item) return;
-
-  // Isi data modal
   document.getElementById('modalCategory').textContent = item.category.toUpperCase();
   document.getElementById('modalTitle').textContent = item.name;
   document.getElementById('modalUmkm').textContent = item.umkm;
@@ -172,13 +173,9 @@ function openModal(id) {
   document.getElementById('modalBestMenu').textContent = item.bestMenu;
   document.getElementById('modalDesc').textContent = item.desc;
   document.getElementById('modalTags').innerHTML = item.tags.map(t=>`<span class="modal-tag-pill">${t}</span>`).join('');
-
-  // Foto Hero FULL WIDTH
   const heroSrc = (item.photos && item.photos.length > 0) ? item.photos[0] : item.img;
   document.getElementById('modalImageContainer').innerHTML =
     `<img src="${heroSrc}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.src='${item.img}'">`;
-
-  // Foto Gallery - 2 foto saja (foto ke-2 dan ke-3)
   const gallery = document.getElementById('modalPhotoGallery');
   if (gallery) {
     const photos = (item.photos || []).slice(1, 3);
@@ -189,15 +186,10 @@ function openModal(id) {
         <div class="modal-gallery-item" onclick="openLightbox('${src}')">
           <img src="${src}" class="modal-gallery-img" alt="Foto ${i+2}" loading="lazy"
             onerror="this.closest('.modal-gallery-item').style.display='none'">
-          <div class="modal-gallery-overlay">
-            <span class="modal-gallery-zoom">🔍 Perbesar</span>
-          </div>
-        </div>
-      `).join('');
+          <div class="modal-gallery-overlay"><span class="modal-gallery-zoom">🔍 Perbesar</span></div>
+        </div>`).join('');
     }
   }
-
- 
   const mapsBtn = document.querySelector('.modal-btn-primary');
   if (mapsBtn) {
     if (item.lat && item.lng) {
@@ -207,7 +199,6 @@ function openModal(id) {
       mapsBtn.style.display = 'none';
     }
   }
-
   document.getElementById('modalOverlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -238,10 +229,11 @@ function handleFormSubmit(e) {
   e.preventDefault();
   if (!currentRating) { showToast('⭐ Pilih rating dulu ya!'); return; }
   const name = document.getElementById('inputName').value.trim();
+  const umkm = document.getElementById('inputUmkm').value.trim();
   const food = document.getElementById('inputFood').value.trim();
   const text = document.getElementById('inputReview').value.trim();
   const colors = ['#E8632A','#2D6A4F','#D4A843','#3D2B1F','#40916C'];
-  communityReviews.unshift({ id:Date.now(), name, food, text, rating:currentRating, color:colors[Math.floor(Math.random()*colors.length)], time:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}), photos:[...uploadedPhotos] });
+  communityReviews.unshift({ id:Date.now(), name, food, umkm, text, rating:currentRating, color:colors[Math.floor(Math.random()*colors.length)], time:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}), photos:[...uploadedPhotos] });
   localStorage.setItem('communityReviews', JSON.stringify(communityReviews));
   renderCommunityReviews(); updateReviewStats();
   e.target.reset(); currentRating=0; uploadedPhotos=[];
@@ -249,6 +241,7 @@ function handleFormSubmit(e) {
   document.getElementById('starLabel').textContent='Klik bintang untuk memberi rating';
   document.getElementById('photoPreview').innerHTML='';
   document.getElementById('charCount').textContent='0';
+  document.getElementById('inputFood').innerHTML = '<option value="">-- Pilih Makanan --</option>';
   showToast('🎉 Review berhasil dikirim! Terima kasih!');
 }
 
@@ -281,205 +274,78 @@ function openLightbox(src) {
   document.body.appendChild(lb);
 }
 
+function renderPhotoPreview() {
+  if(!photoPreview) return;
+  photoPreview.innerHTML=uploadedPhotos.map((src,i)=>`<div class="photo-thumb-wrap"><img src="${src}" class="photo-thumb" onclick="openLightbox('${src}')"><button class="photo-remove-btn" onclick="removePhoto(${i})">✕</button></div>`).join('');
+  if(photoAddBtn) photoAddBtn.style.display=uploadedPhotos.length>=3?'none':'flex';
+}
+
+window.removePhoto = function(i) { uploadedPhotos.splice(i,1); renderPhotoPreview(); };
+
 document.addEventListener('DOMContentLoaded', () => {
-  const SavedReviews = JSON.parse(localStorage.getItem('communityReviews')) || [];
-  communityReviews.push(...SavedReviews);
+  photoPreview = document.getElementById('photoPreview');
+  photoAddBtn  = document.getElementById('photoAddBtn');
+  const photoInput = document.getElementById('photoInput');
+  const textarea   = document.getElementById('inputReview');
+  const charCount  = document.getElementById('charCount');
 
-  const photoInput=document.getElementById('photoInput');
-  const photoPreview=document.getElementById('photoPreview');
-  const photoAddBtn=document.getElementById('photoAddBtn');
-  const textarea=document.getElementById('inputReview');
-  const charCount=document.getElementById('charCount');
-
-  if(textarea) textarea.addEventListener('input',()=>{ 
-    charCount.textContent=textarea.value.length; 
+  if (textarea) textarea.addEventListener('input', () => {
+    charCount.textContent = textarea.value.length;
   });
 
-  if(photoInput) {
-    photoInput.addEventListener('change',(e)=>{
-      const files=[...e.target.files];
-      const remaining=3-uploadedPhotos.length;
-
-      files.slice(0,remaining).forEach(file=>{
-        const reader=new FileReader();
-
-        reader.onload=(ev)=>{
-          uploadedPhotos.push(ev.target.result);
-          renderPhotoPreview();
-        };
-
+  if (photoInput) {
+    photoInput.addEventListener('change', (e) => {
+      const files = [...e.target.files];
+      const remaining = 3 - uploadedPhotos.length;
+      files.slice(0, remaining).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (ev) => { uploadedPhotos.push(ev.target.result); renderPhotoPreview(); };
         reader.readAsDataURL(file);
       });
-
-      photoInput.value='';
+      photoInput.value = '';
     });
   }
 
+  filterCards();
   renderCommunityReviews();
   updateReviewStats();
-});
-  function renderPhotoPreview() {
-    if(!photoPreview) return;
-    photoPreview.innerHTML=uploadedPhotos.map((src,i)=>`<div class="photo-thumb-wrap"><img src="${src}" class="photo-thumb" onclick="openLightbox('${src}')"><button class="photo-remove-btn" onclick="removePhoto(${i})">✕</button></div>`).join('');
-    if(photoAddBtn) photoAddBtn.style.display=uploadedPhotos.length>=3?'none':'flex';
-  }
-  window.removePhoto=function(i){ uploadedPhotos.splice(i,1); renderPhotoPreview(); };
+  loadUmkm();
+  loadDropdowns();
 
-  const observer=new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); }); },{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   createParticles();
-  renderCards(foodData);
-  updateReviewStats();
-  setTimeout(()=>{
-    animateCounter(document.getElementById('statUMKM'),2847,'+');
-    animateCounter(document.getElementById('statReview'),48293);
-    animateCounter(document.getElementById('statKota'),34);
-  },600);
-  ;
 
+  setTimeout(() => {
+    animateCounter(document.getElementById('statUMKM'), 2847, '+');
+    animateCounter(document.getElementById('statReview'), 48293);
+    animateCounter(document.getElementById('statKota'), 34);
+  }, 600);
+
+  const mapEl = document.getElementById('umkmMap');
+  if (mapEl) mapObserver.observe(mapEl);
+});
+
+// ── DATA LOKASI UMKM ──
 const umkmLocations = [
-  // ── CONTOH DATA — GANTI DENGAN LOKASI UMKM KAMU ──
-  {
-    id: 1,
-    name: "Mie Ayam",
-    umkm: "Mie Ayam dan Bakso Mantul",
-    category: "berat",
-    price: "Rp 14.000 / porsi",
-    address: "Jl. Tiban 1 No 2 , Patam lestari, Kota Batam",
-    img: "mie ayam.png",
-    lat: 1.1192898,
-    lng: 103.9772625,
-  },
-  {
-    id: 2,
-    name: "Bakso",
-    umkm: "Mie Ayam dan Bakso Mantul",
-    category: "berat",
-    price: "Rp 15.000 / porsi",
-    address: "Jl. Tiban 1 No 2 , Patam lestari, Kota Batam",
-    img: "bakso.png",
-    lat: 103.9772625,
-    lng: 104.0185,
-  },
-  {
-    id: 3,
-    name: "Tahu Crispy",
-    umkm: "Tahu Crispy",
-    category: "ringan",
-    price: "Rp 10.000 - 15.000 / porsi",
-    address: "Bengkong, Golden Prawn, Batam",
-    img: "tahu.png",
-    lat: 1.161299,
-    lng: 104.042231,
-  },
-  {
-    id: 4,
-    name: "Churos",
-    umkm: "Uweita Churos",
-    category: "Ringan",
-    price: "Rp 3.000 / biji",
-    address: "Uweita Churros, Sungai Langkai, Sagulung, Kota Batam",
-    img: "churos.png",
-    lat: 1.0422012,
-    lng: 103.9764657,
-  },
-  {
-    id: 5,
-    name: "Jus Alpukat",
-    umkm: "Titik",
-    category: "minuman",
-    price: "Rp 10.000 / gelas",
-    address: "Jl.Golden Prawn, Tj.Buntung, Kec.Bengkong,Kota Batam",
-    img: "jus alpukat.png",
-    lat: 1.1618644,
-    lng: 104.0435249,
-  },
-  {
-    id: 6,
-    name: "Ice Cream",
-    umkm: "Titik",
-    category: "Dessert",
-    price: "Rp 20.000 / cone",
-    address: "Tlk.Tering,Kota Batam",
-    img: "ice cream.png",
-    lat: 1.1520,
-    lng: 104.0450,
-  },
-  {
-    id: 7,
-    name:"Bakso Bakar",
-    umkm:"Bakso Bakar",
-    category:"Ringan",
-    price:"Rp 2.000 / porsi",
-    address:"Jl.Kintanami, Sungai Panas,Kota Batam",
-    img:"bakso bakar.png",
-    lat:1.1291635,
-    lng:104.0338627,
-  },
-  {
-    id: 8,
-    name: "Kopi",
-    umkm: "Fomo Cafe",
-    category: "minuman",
-    price: "Rp 10.000 / gelas",
-    address: "Jl.Golden City Residence, Bengkong Laut, Kota Batam",
-    img: "kopi.png",
-    lat: 1.1610421,
-    lng: 104.041943,
-  },
-  {
-    id: 9,
-    name: "Apam Balik",
-    umkm: "Apam Balik",
-    category: "Ringan",
-    price: "Rp 5.000 / porsi",
-    address: "Jl.Imam Bonjol - Nagoya, Lubuk Baja, Kota Batam",
-    img: "apam balik.jpeg",
-    lat: 1.1440112,
-    lng: 104.0118314,
-  },
-  {
-    id: 10,
-    name: "Bakso Urat",
-    umkm: "Mie Ayam dan Bakso Mantul",
-    category: "Berat",
-    price: "Rp 14.000 / porsi",
-    address: "Jl. Tiban 1 No 2 , Patam lestari, Kota Batam",
-    img: "Bakso Urat.png",
-    lat: 1.1192898,
-    lng: 103.9772625,
-  },
-  {
-    id: 11,
-    name: "Risol",
-    umkm: "Risol Pudo",
-    category: "Ringan",
-    price: "Rp 4.000 / porsi",
-    address: "Jl. Bengkong Sadai, Sadai, Kec. Bengkong, Kota Batam",
-    img: "risol.png",
-    lat: 1.1531704,
-    lng: 104.0373216,
-  },
-  {
-    id: 12,
-    name: "Cuanki",
-    umkm: "Cuanki Bandung",
-    category: "Berat",
-    price: "Rp 10.000 / porsi",
-    address: "Jl.Cahaya Garden, Sadai, Kec.Bengkong, Kota Batam",
-    img: "cuanki.jpeg",
-    lat: 1.1446114,
-    lng: 104.0366588,
-  }
+  { id:1, name:"Mie Ayam", umkm:"Mie Ayam dan Bakso Mantul", category:"berat", price:"Rp 14.000 / porsi", address:"Jl. Tiban 1 No 2, Patam Lestari, Kota Batam", img:"img/mie ayam.png", lat:1.1192898, lng:103.9772625 },
+  { id:2, name:"Bakso", umkm:"Mie Ayam dan Bakso Mantul", category:"berat", price:"Rp 15.000 / porsi", address:"Jl. Tiban 1 No 2, Patam Lestari, Kota Batam", img:"img/bakso.png", lat:1.1192898, lng:103.9772625 },
+  { id:3, name:"Tahu Crispy", umkm:"Tahu Crispy", category:"ringan", price:"Rp 10.000 - 15.000 / porsi", address:"Bengkong, Golden Prawn, Batam", img:"img/tahu.png", lat:1.161299, lng:104.042231 },
+  { id:4, name:"Churos", umkm:"Uweita Churos", category:"ringan", price:"Rp 3.000 / biji", address:"Uweita Churros, Sungai Langkai, Sagulung, Kota Batam", img:"img/churos.png", lat:1.0422012, lng:103.9764657 },
+  { id:5, name:"Jus Alpukat", umkm:"Titik", category:"minuman", price:"Rp 10.000 / gelas", address:"Jl. Golden Prawn, Tj. Buntung, Kec. Bengkong, Kota Batam", img:"img/jus.png", lat:1.1618644, lng:104.0435249 },
+  { id:6, name:"Ice Cream", umkm:"Ice Cream", category:"dessert", price:"Rp 20.000 / cone", address:"Tlk. Tering, Kota Batam", img:"img/ice cream.png", lat:1.1520, lng:104.0450 },
+  { id:7, name:"Bakso Bakar", umkm:"Bakso Bakar", category:"ringan", price:"Rp 2.000 / tusuk", address:"Jl. Kintanami, Sungai Panas, Kota Batam", img:"img/bakso bakar.png", lat:1.1291635, lng:104.0338627 },
+  { id:8, name:"Kopi", umkm:"Fomo Coffe", category:"minuman", price:"Rp 10.000 / gelas", address:"Jl. Golden City Residence, Bengkong Laut, Kota Batam", img:"img/kopi.jpeg", lat:1.1610421, lng:104.041943 },
+  { id:9, name:"Apam Balik", umkm:"Apam Balik", category:"ringan", price:"Rp 5.000 / porsi", address:"Jl. Imam Bonjol - Nagoya, Lubuk Baja, Kota Batam", img:"img/apam balik.jpeg", lat:1.1440112, lng:104.0118314 },
+  { id:10, name:"Bakso Urat", umkm:"Mie Ayam dan Bakso Mantul", category:"berat", price:"Rp 20.000 / porsi", address:"Jl. Tiban 1 No 2, Patam Lestari, Kota Batam", img:"img/bakso urat.png", lat:1.1192898, lng:103.9772625 },
+  { id:11, name:"Risol", umkm:"Risol Pudo", category:"ringan", price:"Rp 3.000 - 4.000 / biji", address:"Jl. Bengkong Sadai, Sadai, Kec. Bengkong, Kota Batam", img:"img/risol.png", lat:1.1531704, lng:104.0373216 },
+  { id:12, name:"Cuanki", umkm:"Cuanki khas Bandung", category:"berat", price:"Rp 10.000 / porsi", address:"Jl. Cahaya Garden, Sadai, Kec. Bengkong, Kota Batam", img:"img/cuanki.jpeg", lat:1.1446114, lng:104.0366588 },
 ];
 
-const markerColors = {
-  berat:   '#E8632A',
-  ringan:  '#40916C',
-  minuman: '#4A90D9',
-  dessert: '#D4A843',
-};
+const markerColors = { berat:'#E8632A', ringan:'#40916C', minuman:'#4A90D9', dessert:'#D4A843' };
 
 let mapInstance = null;
 let allMarkers = [];
@@ -488,48 +354,25 @@ let selectedLocation = null;
 function createCustomIcon(color) {
   return L.divIcon({
     className: '',
-    html: `<div style="
-      width: 32px; height: 32px;
-      background: ${color};
-      border: 3px solid white;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    "></div>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -34],
+    html: `<div style="width:32px;height:32px;background:${color};border:3px solid white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(0,0,0,0.25);"></div>`,
+    iconSize:[32,32], iconAnchor:[16,32], popupAnchor:[0,-34],
   });
 }
 
 function initUmkmMap() {
   if (mapInstance) return;
-
-  mapInstance = L.map('umkmMap', {
-    center: [1.1301, 104.0529],
-    zoom: 12,
-    zoomControl: true,
-  });
-
-  // Tile layer OpenStreetMap dengan style bersih
+  mapInstance = L.map('umkmMap', { center:[1.1301, 104.0529], zoom:12, zoomControl:true });
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-    maxZoom: 19,
+    attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>', maxZoom:19,
   }).addTo(mapInstance);
-
   umkmLocations.forEach(loc => {
-    const color = markerColors[loc.category] || '#E8632A';
+    const color = markerColors[loc.category.toLowerCase()] || '#E8632A';
     const icon = createCustomIcon(color);
-
-    const marker = L.marker([loc.lat, loc.lng], { icon })
-      .addTo(mapInstance);
-
+    const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(mapInstance);
     marker.on('click', () => {
       selectedLocation = loc;
       showMapInfoPanel(loc);
       mapInstance.panTo([loc.lat, loc.lng]);
-
-      // Bounce effect
       const el = marker.getElement();
       if (el) {
         el.style.transition = 'transform 0.15s ease';
@@ -537,8 +380,7 @@ function initUmkmMap() {
         setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
       }
     });
-
-    allMarkers.push({ marker, category: loc.category });
+    allMarkers.push({ marker, category: loc.category.toLowerCase() });
   });
 }
 
@@ -548,12 +390,10 @@ function showMapInfoPanel(loc) {
   content.style.display = 'flex';
   content.style.flexDirection = 'column';
   content.style.height = '100%';
-
   const catLabels = { berat:'Makanan Berat', ringan:'Makanan Ringan', minuman:'Minuman', dessert:'Dessert' };
-
   document.getElementById('mipImg').src = loc.img;
   document.getElementById('mipImg').onerror = function() { this.style.display='none'; };
-  document.getElementById('mipCategory').textContent = catLabels[loc.category] || loc.category;
+  document.getElementById('mipCategory').textContent = catLabels[loc.category.toLowerCase()] || loc.category;
   document.getElementById('mipName').textContent = loc.name;
   document.getElementById('mipUmkm').textContent = '📍 ' + loc.umkm;
   document.getElementById('mipPrice').textContent = loc.price;
@@ -561,38 +401,21 @@ function showMapInfoPanel(loc) {
 }
 
 function openDirections() {
-  if (selectedLocation) {
-    window.open(`https://maps.google.com/?q=${selectedLocation.lat},${selectedLocation.lng}`, '_blank');
-  }
+  if (selectedLocation) window.open(`https://maps.google.com/?q=${selectedLocation.lat},${selectedLocation.lng}`, '_blank');
 }
 
 function filterMapMarkers(cat, btn) {
   document.querySelectorAll('.map-chip').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-
   allMarkers.forEach(({ marker, category }) => {
-    if (cat === 'all' || category === cat) {
-      marker.addTo(mapInstance);
-    } else {
-      marker.remove();
-    }
+    if (cat === 'all' || category === cat) marker.addTo(mapInstance);
+    else marker.remove();
   });
-
   document.getElementById('mapInfoPlaceholder').style.display = 'flex';
   document.getElementById('mapInfoContent').style.display = 'none';
   selectedLocation = null;
 }
 
-// Init peta saat section masuk viewport
 const mapObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !mapInstance) {
-      initUmkmMap();
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting && !mapInstance) initUmkmMap(); });
 }, { threshold: 0.1 });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const mapEl = document.getElementById('umkmMap');
-  if (mapEl) mapObserver.observe(mapEl);
-});

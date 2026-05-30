@@ -6,6 +6,7 @@
     <title>Batam Hidden Bites — Review UMKM Kuliner Batam</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+  
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
@@ -31,15 +32,14 @@
         <div class="hero-content">
             <div class="hero-tag">🇮🇩 Platform Review Kuliner Lokal</div>
             <h1>Temukan <span class="highlight">Kuliner</span> UMKM Terbaik</h1>
-            <p class="hero-desc">Jelajahi review jujur dari pelanggan nyata. Dari warung pinggir jalan  UMKM kekinian — semuanya ada di sini.</p>
+            <p class="hero-desc">Jelajahi review jujur dari pelanggan nyata. Dari warung pinggir jalan hingga UMKM kekinian — semuanya ada di sini.</p>
             <div class="hero-actions">
-                <a href="#kategori" class="btn-primary">Temukan Kuliner🔍 </a>
-                <a href="#community-review" class="btn-secondary">Tulis Review✍️</a>
+                <a href="#kategori" class="btn-primary">Temukan Kuliner 🔍</a>
+                <a href="#community-review" class="btn-secondary">Tulis Review ✍️</a>
             </div>
         </div>
         <div class="hero-visual">
             <div class="hero-mosaic">
-                <!-- Foto besar kiri -->
                 <div class="mosaic-main">
                     <img src="img/mie ayam.png" alt="Mie Ayam" class="mosaic-img">
                     <div class="mosaic-label">
@@ -47,7 +47,6 @@
                         <span class="mosaic-tag">🔥 HOT</span>
                     </div>
                 </div>
-                <!-- Kolom kanan: 3 foto kecil susun vertikal -->
                 <div class="mosaic-col">
                     <div class="mosaic-small">
                         <img src="img/bakso.png" alt="Bakso" class="mosaic-img">
@@ -62,7 +61,6 @@
                         <div class="mosaic-label-sm">Churos</div>
                     </div>
                 </div>
-                <!-- Floating badge -->
                 <div class="mosaic-badge-float">
                     <span class="mbf-emoji">🍽️</span>
                     <div>
@@ -118,9 +116,8 @@
         </div>
 
         <div class="cards-grid" id="cardsGrid"></div>
-        <div class="no-results" id="noResults">😔 Tidak ada hasil ditemukan. Coba kata kunci lain.</div>
+        <div class="no-results" id="noResults" style="display:none">😔 Tidak ada hasil ditemukan. Coba kata kunci lain.</div>
     </section>
-
 
     <!-- ===== PETA LOKASI UMKM ===== -->
     <section class="umkm-map-section" id="peta-umkm">
@@ -130,7 +127,6 @@
             <p class="section-sub">Klik marker di peta untuk melihat info UMKM kuliner terdekat.</p>
         </div>
 
-        <!-- Filter chip kategori peta -->
         <div class="map-filter-row reveal">
             <button class="map-chip active" onclick="filterMapMarkers('all', this)">🍽️ Semua</button>
             <button class="map-chip" onclick="filterMapMarkers('berat', this)">🍜 Makanan Berat</button>
@@ -140,10 +136,8 @@
         </div>
 
         <div class="map-wrapper reveal">
-            <!-- Google Maps embed -->
             <div id="umkmMap" class="umkm-map-canvas"></div>
 
-            <!-- Panel info UMKM saat marker diklik -->
             <div class="map-info-panel" id="mapInfoPanel">
                 <div class="mip-placeholder" id="mapInfoPlaceholder">
                     <div class="mip-icon">📍</div>
@@ -167,7 +161,6 @@
             </div>
         </div>
 
-        <!-- Legenda -->
         <div class="map-legend reveal">
             <span class="legend-title">Legenda:</span>
             <span class="legend-item"><span class="legend-dot" style="background:#E8632A"></span>Makanan Berat</span>
@@ -193,12 +186,16 @@
                         <input type="text" class="form-input" id="inputName" required placeholder="Contoh: Budi Santoso">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="inputFood">Nama Makanan / Kuliner</label>
-                        <input type="text" class="form-input" id="inputFood" required placeholder="Contoh: Bakso Mercon Lava">
+                        <label class="form-label" for="inputUmkm">Nama UMKM &amp; Kota</label>
+                        <select class="form-input" id="inputUmkm" required>
+                            <option value="">-- Pilih UMKM --</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="inputUmkm">Nama UMKM &amp; Kota</label>
-                        <input type="text" class="form-input" id="inputUmkm" required placeholder="Contoh: Bakso Pak Ndut, Solo">
+                        <label class="form-label" for="inputFood">Nama Makanan / Kuliner</label>
+                        <select class="form-input" id="inputFood" required>
+                            <option value="">-- Pilih Makanan --</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Rating</label>
@@ -214,7 +211,7 @@
                     <div class="form-group">
                         <label class="form-label" for="inputReview">Ulasan Jujur Kamu</label>
                         <textarea class="form-textarea" id="inputReview" required maxlength="300" placeholder="Ceritakan rasa, porsi, pelayanan, tempat... (Maksimal 300 karakter)"></textarea>
-                        <div style="text-align: right; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        <div style="text-align:right;font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem;">
                             <span id="charCount">0</span>/300 karakter
                         </div>
                     </div>
@@ -280,7 +277,7 @@
                 <hr class="modal-divider">
                 <h4 class="modal-section-title">📸 Foto Kuliner</h4>
                 <div class="modal-photo-gallery" id="modalPhotoGallery"></div>
-                <div class="modal-cta" style="margin-top: 2rem;">
+                <div class="modal-cta" style="margin-top:2rem;">
                     <button class="modal-btn-primary">🗺️ Lihat Rute Lokasi UMKM</button>
                 </div>
             </div>
@@ -288,8 +285,8 @@
     </div>
 
     <footer>
-        <div class="footer-logo">Rasa<span>Lokal</span></div>
-        <div class="footer-text">© 2026 RasaLokal Indonesia — Dukung penuh UMKM Kuliner Lokal.</div>
+        <div class="footer-logo">Batam<span>Hidden</span><span>Bites</span></div>
+        <div class="footer-text">© 2026 BatamHiddenBites — Dukung penuh UMKM Kuliner Lokal.</div>
         <div class="footer-links">
             <a href="#">Syarat</a>
             <a href="#">Privasi</a>
@@ -299,7 +296,8 @@
 
     <div class="toast" id="toast">🎉 Berhasil!</div>
 
-    <script src="script.js"></script>
+   
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
