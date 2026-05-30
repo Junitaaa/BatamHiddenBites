@@ -45,7 +45,7 @@ const communityReviews = JSON.parse(localStorage.getItem('communityReviews')) ||
 let photoPreview = null;
 let photoAddBtn = null;
 
-
+// ── DROPDOWN: isi UMKM dulu, makanan menyesuaikan ──
 function loadDropdowns() {
   const umkmSelect = document.getElementById('inputUmkm');
   const foodSelect = document.getElementById('inputFood');
@@ -60,7 +60,7 @@ function loadDropdowns() {
       umkmSelect.appendChild(opt);
     });
 
-  
+    // Saat UMKM dipilih, filter dropdown makanan
     umkmSelect.addEventListener('change', () => {
       const selectedUmkm = umkmSelect.value;
       foodSelect.innerHTML = '<option value="">-- Pilih Makanan --</option>';
@@ -72,7 +72,7 @@ function loadDropdowns() {
         opt.textContent = item.name;
         foodSelect.appendChild(opt);
       });
- 
+      // Auto pilih jika hanya 1 menu
       if (filtered.length === 1) foodSelect.value = filtered[0].name;
     });
   }
@@ -241,6 +241,7 @@ function handleFormSubmit(e) {
   document.getElementById('starLabel').textContent='Klik bintang untuk memberi rating';
   document.getElementById('photoPreview').innerHTML='';
   document.getElementById('charCount').textContent='0';
+  // Reset dropdown makanan saat form direset
   document.getElementById('inputFood').innerHTML = '<option value="">-- Pilih Makanan --</option>';
   showToast('🎉 Review berhasil dikirim! Terima kasih!');
 }

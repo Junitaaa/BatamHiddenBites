@@ -6,7 +6,7 @@
     <title>Batam Hidden Bites — Review UMKM Kuliner Batam</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-  
+    <!-- FIX: Leaflet CSS tetap di head -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
@@ -296,7 +296,7 @@
 
     <div class="toast" id="toast">🎉 Berhasil!</div>
 
-   
+    <!-- FIX: Leaflet JS dimuat SEBELUM script.js agar L tersedia saat dipakai -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
